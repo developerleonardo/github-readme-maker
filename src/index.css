@@ -48,6 +48,8 @@
   --color-primary-700: #036ab9;
   --color-primary-800: #02477b;
   --color-primary-900: #01233e;
+  --color-text-strong: #094067;
+  --color-heading-1: var(--color-text-strong);
 }
 
 :root {
@@ -83,6 +85,15 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --color-primary-100: #d8eefe;
+  --color-primary-200: #b1ddfe;
+  --color-primary-300: #8bcbfd;
+  --color-primary-400: #64bafd;
+  --color-primary-500: #3da9fc;
+  --color-primary-600: #048df7;
+  --color-primary-700: #036ab9;
+  --color-primary-800: #02477b;
+  --color-primary-900: #01233e;
 }
 
 .dark {
