@@ -25,7 +25,7 @@ function Index() {
             placeholder="developerleonardo"
             className="grow py-2"
           />
-          <Button asChild>
+          <Button asChild variant="default" size="lg">
             <Link to={"/readme"}>Get Started</Link>
           </Button>
         </form>
