@@ -7,8 +7,8 @@ export const Route = createRootRoute({
       <div className="flex min-h-svh flex-col items-center justify-center">
         <h1 className="text-2xl font-bold">Welcome to the Root Route</h1>
         <p className="mt-4">This is the root route of your application.</p>
+        <Outlet />
       </div>
-      <Outlet />
       <TanStackRouterDevtools />
     </>
   ),
