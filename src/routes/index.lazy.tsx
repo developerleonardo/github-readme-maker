@@ -10,7 +10,7 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-svh max-w-4xl h-full grid grid-cols-1 grid-rows-[1fr_20px_20px] pt-24 pb-8">
-      <main className="flex flex-col items-center">
+      <section className="flex flex-col items-center">
         <h1 className="text-5xl font-semibold mb-12 text-center text-heading-1">
           Your Github Deserves More Than an Empty README
         </h1>
@@ -36,7 +36,7 @@ function Index() {
           height={390}
           className="mt-12"
         />
-      </main>
+      </section>
       <p className="text-sm text-muted-foreground text-center">
         Made with ❤️ by{" "}
         <a
