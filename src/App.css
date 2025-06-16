@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  font-family: "Inter", sans-serif;
+}
+
 body {
   background-color: #fffffe;
   opacity: 0.8;

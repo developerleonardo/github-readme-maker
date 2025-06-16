@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
     "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.7",
@@ -23,11 +25,15 @@
     "lucide-react": "^0.514.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-hook-form": "^7.58.0",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.10",
+    "zod": "^3.25.64"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@tanstack/eslint-plugin-query": "^5.78.0",
+    "@tanstack/react-query-devtools": "^5.80.7",
     "@tanstack/router-cli": "^1.121.12",
     "@tanstack/router-plugin": "^1.121.7",
     "@types/node": "^24.0.1",
