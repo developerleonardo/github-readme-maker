@@ -1,6 +1,6 @@
 import { BubbleBackground } from "@/BubleBackground";
 import { useFetchUser } from "@/hooks/useFetchUser";
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -15,17 +15,26 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
 });
 
 const formSchema = z.object({
-  username: z.string().min(1).max(39),
+  username: z
+    .string()
+    .min(1)
+    .max(39)
+    .regex(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i, {
+      message: "Invalid Github username",
+    }),
 });
 
 function Index() {
-  const { data, error, isLoading } = useFetchUser("developerleonardo");
+  const [githubUsername, setGithubUsername] = useState("");
+  const { data, error, isLoading } = useFetchUser(githubUsername);
+  const navigate = useNavigate({ from: "/" });
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,10 +44,32 @@ function Index() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log({ values });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    await setGithubUsername(values.username);
+  }
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-lg text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-lg text-red-500">Error: {error.message}</p>
+      </div>
+    );
+  }
+
+  if (data) {
+    navigate({
+      to: `/generate/${data.login}`,
+      params: { username: data.login },
+    });
+    return null;
   }
 
   return (

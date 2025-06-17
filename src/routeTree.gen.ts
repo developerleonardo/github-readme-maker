@@ -11,6 +11,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GenerateUsernameRouteImport } from './routes/generate/$username'
 
 const ReadmeLazyRouteImport = createFileRoute('/readme')()
 const IndexLazyRouteImport = createFileRoute('/')()
@@ -25,31 +26,40 @@ const IndexLazyRoute = IndexLazyRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+const GenerateUsernameRoute = GenerateUsernameRouteImport.update({
+  id: '/generate/$username',
+  path: '/generate/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/readme': typeof ReadmeLazyRoute
+  '/generate/$username': typeof GenerateUsernameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/readme': typeof ReadmeLazyRoute
+  '/generate/$username': typeof GenerateUsernameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexLazyRoute
   '/readme': typeof ReadmeLazyRoute
+  '/generate/$username': typeof GenerateUsernameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/readme'
+  fullPaths: '/' | '/readme' | '/generate/$username'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/readme'
-  id: '__root__' | '/' | '/readme'
+  to: '/' | '/readme' | '/generate/$username'
+  id: '__root__' | '/' | '/readme' | '/generate/$username'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   ReadmeLazyRoute: typeof ReadmeLazyRoute
+  GenerateUsernameRoute: typeof GenerateUsernameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,12 +78,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/generate/$username': {
+      id: '/generate/$username'
+      path: '/generate/$username'
+      fullPath: '/generate/$username'
+      preLoaderRoute: typeof GenerateUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   ReadmeLazyRoute: ReadmeLazyRoute,
+  GenerateUsernameRoute: GenerateUsernameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
