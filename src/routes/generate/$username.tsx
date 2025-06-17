@@ -4,15 +4,10 @@ import Layout from "@/Layout/Layout";
 
 export const Route = createFileRoute("/generate/$username")({
   component: RouteComponent,
-  loader: async ({ params }) => {
-    return {
-      username: params.username,
-    };
-  },
 });
 
 function RouteComponent() {
-  const { username } = Route.useLoaderData();
+  const { username } = Route.useParams();
   return (
     <>
       <Layout>
