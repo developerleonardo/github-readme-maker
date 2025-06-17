@@ -1,8 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import Layout from "@/Layout/Layout";
 
-export const Route = createFileRoute("/generate/$username")({
+export const Route = createLazyFileRoute("/generate/$username")({
   component: RouteComponent,
 });
 

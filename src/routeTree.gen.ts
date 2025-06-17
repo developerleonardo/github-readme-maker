@@ -11,66 +11,51 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as GenerateUsernameRouteImport } from './routes/generate/$username'
 
-const ReadmeLazyRouteImport = createFileRoute('/readme')()
 const IndexLazyRouteImport = createFileRoute('/')()
+const GenerateUsernameLazyRouteImport = createFileRoute('/generate/$username')()
 
-const ReadmeLazyRoute = ReadmeLazyRouteImport.update({
-  id: '/readme',
-  path: '/readme',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/readme.lazy').then((d) => d.Route))
 const IndexLazyRoute = IndexLazyRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
-const GenerateUsernameRoute = GenerateUsernameRouteImport.update({
+const GenerateUsernameLazyRoute = GenerateUsernameLazyRouteImport.update({
   id: '/generate/$username',
   path: '/generate/$username',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/generate/$username.lazy').then((d) => d.Route),
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/readme': typeof ReadmeLazyRoute
-  '/generate/$username': typeof GenerateUsernameRoute
+  '/generate/$username': typeof GenerateUsernameLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/readme': typeof ReadmeLazyRoute
-  '/generate/$username': typeof GenerateUsernameRoute
+  '/generate/$username': typeof GenerateUsernameLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexLazyRoute
-  '/readme': typeof ReadmeLazyRoute
-  '/generate/$username': typeof GenerateUsernameRoute
+  '/generate/$username': typeof GenerateUsernameLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/readme' | '/generate/$username'
+  fullPaths: '/' | '/generate/$username'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/readme' | '/generate/$username'
-  id: '__root__' | '/' | '/readme' | '/generate/$username'
+  to: '/' | '/generate/$username'
+  id: '__root__' | '/' | '/generate/$username'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  ReadmeLazyRoute: typeof ReadmeLazyRoute
-  GenerateUsernameRoute: typeof GenerateUsernameRoute
+  GenerateUsernameLazyRoute: typeof GenerateUsernameLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/readme': {
-      id: '/readme'
-      path: '/readme'
-      fullPath: '/readme'
-      preLoaderRoute: typeof ReadmeLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -82,7 +67,7 @@ declare module '@tanstack/react-router' {
       id: '/generate/$username'
       path: '/generate/$username'
       fullPath: '/generate/$username'
-      preLoaderRoute: typeof GenerateUsernameRouteImport
+      preLoaderRoute: typeof GenerateUsernameLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -90,8 +75,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  ReadmeLazyRoute: ReadmeLazyRoute,
-  GenerateUsernameRoute: GenerateUsernameRoute,
+  GenerateUsernameLazyRoute: GenerateUsernameLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
