@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { Loading } from "@/components/Loading";
+import { ErrorMessage } from "@/components/ErrorMessage";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -49,11 +51,7 @@ function Index() {
   }
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <p className="text-lg text-muted-foreground">Loading...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (error) {
@@ -82,6 +80,7 @@ function Index() {
           Enter your GitHub username and get a personalized README you can be
           proud of.
         </p>
+        <ErrorMessage message="this is an error that happened this is an error that happened this is an error that happened this is an error that happened" />
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
