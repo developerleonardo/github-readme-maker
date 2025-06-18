@@ -1,4 +1,4 @@
-import { BubbleBackground } from "@/BubleBackground";
+import { BubbleBackground } from "@/components/BubleBackground";
 import { useFetchUser } from "@/hooks/useFetchUser";
 import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Loading } from "@/components/Loading";
 import { ErrorMessage } from "@/components/ErrorMessage";
+import { Footer } from "@/components/Footer";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -111,20 +112,7 @@ function Index() {
         className="mt-12"
       />
       <BubbleBackground />
-      <footer className="col-span-2">
-        <p className="text-sm text-muted-foreground text-center">
-          Made with ❤️ by{" "}
-          <a
-            href="https://www.linkedin.com/in/leonardo-salazar-serna/"
-            className="text-primary underline-offset-4 hover:underline"
-          >
-            Leonardo Salazar
-          </a>
-        </p>
-        <p className="text-sm text-muted-foreground text-center">
-          Open source and free forever
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
