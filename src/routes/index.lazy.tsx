@@ -55,11 +55,7 @@ function Index() {
   }
 
   if (error) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <p className="text-lg text-red-500">Error: {error.message}</p>
-      </div>
-    );
+    return <ErrorMessage message={error.message} />;
   }
 
   if (data) {
@@ -80,7 +76,6 @@ function Index() {
           Enter your GitHub username and get a personalized README you can be
           proud of.
         </p>
-        <ErrorMessage message="this is an error that happened this is an error that happened this is an error that happened this is an error that happened" />
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
