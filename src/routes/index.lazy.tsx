@@ -19,6 +19,7 @@ import { useState } from "react";
 import { Loading } from "@/components/Loading";
 import { ErrorMessage } from "@/components/ErrorMessage";
 import { Footer } from "@/components/Footer";
+import { useReadmeStore } from "@/stores";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -35,6 +36,7 @@ const formSchema = z.object({
 });
 
 function Index() {
+  const setGithubUser = useReadmeStore((state) => state.setGithubUser);
   const [githubUsername, setGithubUsername] = useState("");
   const { data, error, isLoading } = useFetchUser(githubUsername);
   const navigate = useNavigate({ from: "/" });
@@ -60,6 +62,7 @@ function Index() {
   }
 
   if (data) {
+    setGithubUser(data);
     navigate({
       to: `/generate/${data.login}`,
       params: { username: data.login },
