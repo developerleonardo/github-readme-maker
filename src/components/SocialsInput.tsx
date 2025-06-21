@@ -1,5 +1,5 @@
-import { Label } from "@radix-ui/react-label";
-import { Input } from "./input";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 type SocialsInputProps = {
   label: string;
@@ -15,10 +15,8 @@ export const SocialsInput = ({
   type = "text",
 }: SocialsInputProps) => {
   return (
-    <div className="grid w-full max-w-sm items-center gap-1 mt-2">
-      <Label htmlFor={label} className="text-sm">
-        {label}
-      </Label>
+    <div className="grid w-full max-w-sm items-center gap-1">
+      <Label htmlFor={label}>{label}</Label>
       <Input type={type} id={id} placeholder={placeholder} />
     </div>
   );
