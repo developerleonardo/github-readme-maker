@@ -4,6 +4,7 @@ import { SidebarSeparator } from "./ui/sidebar";
 import { SectionForm } from "./ui/SectionForm";
 import { Textarea } from "./ui/textarea";
 import { SocialsInput } from "./ui/SocialsInput";
+import { socials } from "@/data/socials";
 
 export const ReadmeForm = () => {
   return (
@@ -25,24 +26,15 @@ export const ReadmeForm = () => {
         </div>
       </SectionForm>
       <SectionForm title="Socials">
-        <SocialsInput
-          label="Github"
-          placeholder="username"
-          type="url"
-          id="github"
-        />
-        <SocialsInput
-          label="LinkedIn"
-          placeholder="username"
-          type="url"
-          id="linkedin"
-        />
-        <SocialsInput
-          label="Twitter"
-          placeholder="username"
-          type="url"
-          id="twitter"
-        />
+        {socials.map((social) => (
+          <SocialsInput
+            key={social.id}
+            label={social.label}
+            placeholder={social.placeholder}
+            type={social.type}
+            id={social.id}
+          />
+        ))}
       </SectionForm>
       <SidebarSeparator />
     </form>
