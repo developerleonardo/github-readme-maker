@@ -38,9 +38,7 @@ export const ReadmeForm = () => {
       <SectionForm title="Tech Stack">
         <div className="grid grid-cols-3 gap-x-2 gap-y-4">
           {technologies.map((tech) => (
-            <div key={tech.id} className="flex items-center gap-3">
-              <CustomCheckbox id={tech.id} label={tech.label} />
-            </div>
+            <CustomCheckbox id={tech.id} label={tech.label} />
           ))}
         </div>
       </SectionForm>
