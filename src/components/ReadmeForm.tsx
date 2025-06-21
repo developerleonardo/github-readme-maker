@@ -6,6 +6,8 @@ import { socials } from "@/data/socials";
 import { Label } from "./ui/label";
 import { CustomCheckbox } from "./CustomCheckbox";
 import { technologies } from "@/data/techStack";
+import { Checkbox } from "./ui/checkbox";
+import { Button } from "./ui/button";
 
 export const ReadmeForm = () => {
   return (
@@ -42,6 +44,26 @@ export const ReadmeForm = () => {
           ))}
         </div>
       </SectionForm>
+      <SectionForm title="Github Stats">
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-3">
+            <Checkbox id="stats" />
+            <Label htmlFor="terms">Show Github Stats</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox id="trophies" />
+            <Label htmlFor="terms">Show Github Trophies</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox id="top-repos" />
+            <Label htmlFor="terms">Show Top Contributed Repos</Label>
+          </div>
+        </div>
+      </SectionForm>
+      <div className="flex items-center justify-center gap-3 mt-8">
+        <Button variant="secondary">Reset</Button>
+        <Button type="submit">Generate Readme</Button>
+      </div>
     </form>
   );
 };
