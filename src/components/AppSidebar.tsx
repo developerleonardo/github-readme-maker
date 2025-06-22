@@ -9,7 +9,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <h2 className="text-lg font-semibold">App Sidebar</h2>
+        <h2 className="text-lg font-semibold">Readme Generator</h2>
       </SidebarHeader>
       <SidebarContent>
         <ReadmeForm />
