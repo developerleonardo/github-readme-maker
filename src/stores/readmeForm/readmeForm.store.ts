@@ -12,6 +12,7 @@ interface ReadmeFormStore {
     value: readmeFormTypes["socials"][K]
   ) => void;
   toggleTechStack: (tech: string) => void;
+  toggleBooleanField: <k extends keyof readmeFormTypes>(field: k) => void;
 }
 
 const initialReadmeContent: readmeFormTypes = {
@@ -63,6 +64,14 @@ const createReadmeFormStore: StateCreator<ReadmeFormStore> = (set, get) => ({
         techStack: updatedTechStack,
       },
     });
+  },
+  toggleBooleanField: (field) => {
+    set((state) => ({
+      readmeContent: {
+        ...state.readmeContent,
+        [field]: !state.readmeContent[field],
+      },
+    }));
   },
 });
 
