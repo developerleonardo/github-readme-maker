@@ -13,6 +13,7 @@ import { GithubStatsCheckbox } from "./GithubStatsCheckbox";
 export const ReadmeForm = () => {
   const readmeContent = useReadmeFormStore((state) => state.readmeContent);
   const updateField = useReadmeFormStore((state) => state.updateField);
+  const resetForm = useReadmeFormStore((state) => state.resetForm);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ export const ReadmeForm = () => {
   };
 
   const handleInputUpdate = (
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     updateField(e.target.id as keyof typeof readmeContent, e.target.value);
   };
@@ -34,7 +35,8 @@ export const ReadmeForm = () => {
             type="text"
             id="name"
             placeholder="Enter your name"
-            onBlur={(e) => handleInputUpdate(e)}
+            value={readmeContent.name}
+            onChange={(e) => handleInputUpdate(e)}
           />
         </div>
       </SectionForm>
@@ -44,7 +46,8 @@ export const ReadmeForm = () => {
           <Textarea
             placeholder="Type your message here."
             id="summary"
-            onBlur={(e) => handleInputUpdate(e)}
+            value={readmeContent.summary}
+            onChange={(e) => handleInputUpdate(e)}
           />
         </div>
       </SectionForm>
@@ -72,7 +75,9 @@ export const ReadmeForm = () => {
         <GithubStatsCheckbox />
       </SectionForm>
       <div className="flex items-center justify-center gap-3 mt-8">
-        <Button variant="secondary">Reset</Button>
+        <Button variant="secondary" onClick={() => resetForm()}>
+          Reset
+        </Button>
         <Button type="submit">Generate Readme</Button>
       </div>
     </form>

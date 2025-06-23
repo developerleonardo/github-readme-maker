@@ -16,13 +16,14 @@ export const SocialsInput = ({
   id,
   type = "text",
 }: SocialsInputProps) => {
+  const readmeContentSocials = useReadmeFormStore(
+    (state) => state.readmeContent.socials
+  );
   const updateSocialField = useReadmeFormStore(
     (state) => state.updateSocialField
   );
 
-  const handleSocialInputUpdate = (
-    e: React.FocusEvent<HTMLInputElement, Element>
-  ) => {
+  const handleSocialInputUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateSocialField(e.target.id as socialsTypes, e.target.value);
   };
   return (
@@ -32,7 +33,8 @@ export const SocialsInput = ({
         type={type}
         id={id}
         placeholder={placeholder}
-        onBlur={(e) => handleSocialInputUpdate(e)}
+        value={readmeContentSocials[id as socialsTypes]}
+        onChange={(e) => handleSocialInputUpdate(e)}
       />
     </div>
   );
