@@ -8,20 +8,44 @@ import { CustomCheckbox } from "./CustomCheckbox";
 import { technologies } from "@/data/techStack";
 import { Checkbox } from "./ui/checkbox";
 import { Button } from "./ui/button";
+import { useReadmeFormStore } from "@/stores/readmeForm/readmeForm.store";
 
 export const ReadmeForm = () => {
+  const readmeContent = useReadmeFormStore((state) => state.readmeContent);
+  const updateField = useReadmeFormStore((state) => state.updateField);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Form submitted with data: ", readmeContent);
+  };
+
+  const handleInputUpdate = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>
+  ) => {
+    updateField(e.target.id as keyof typeof readmeContent, e.target.value);
+  };
+
   return (
-    <form action="">
+    <form action="" onSubmit={handleSubmit}>
       <SectionForm title="Basics">
         <div className="grid w-full max-w-sm items-center gap-1">
           <Label htmlFor="name">Full Name</Label>
-          <Input type="text" id="name" placeholder="Enter your name" />
+          <Input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            onBlur={(e) => handleInputUpdate(e)}
+          />
         </div>
       </SectionForm>
       <SectionForm title="About Me">
         <div className="grid w-full max-w-sm items-center gap-1">
           <Label htmlFor="message">Summary</Label>
-          <Textarea placeholder="Type your message here." id="message" />
+          <Textarea
+            placeholder="Type your message here."
+            id="summary"
+            onBlur={(e) => handleInputUpdate(e)}
+          />
         </div>
       </SectionForm>
       <SectionForm title="Socials">

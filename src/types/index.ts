@@ -27,3 +27,10 @@ export interface readmeFormTypes {
   showGithubTrophies: boolean;
   showTopRepos: boolean;
 }
+
+export type socialsTypes =
+  | "github"
+  | "twitter"
+  | "linkedin"
+  | "instagram"
+  | "youtube";
