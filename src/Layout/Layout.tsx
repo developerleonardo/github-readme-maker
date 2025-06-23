@@ -9,8 +9,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
+      <SidebarTrigger />
       <SidebarInset>
-        <SidebarTrigger />
         <section className="flex flex-col flex-1 p-4 items-center justify-center">
           {children}
         </section>

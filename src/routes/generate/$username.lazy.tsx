@@ -1,7 +1,7 @@
-import { createLazyFileRoute, Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
+import { createLazyFileRoute } from "@tanstack/react-router";
 import Layout from "@/Layout/Layout";
 import { useReadmeStore } from "@/stores";
+import { ReadmePreview } from "@/components/ReadmePreview";
 
 export const Route = createLazyFileRoute("/generate/$username")({
   component: RouteComponent,
@@ -15,11 +15,8 @@ function RouteComponent() {
   return (
     <>
       <Layout>
-        <h1 className="text-2xl font-bold">Readme</h1>
-        <p className="mt-4">This is the readme of {username}</p>
-        <Button asChild>
-          <Link to={"/"}>Go back to Home</Link>
-        </Button>
+        <h1>{username} Readme</h1>
+        <ReadmePreview />
       </Layout>
     </>
   );
