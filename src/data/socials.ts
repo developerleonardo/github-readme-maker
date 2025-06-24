@@ -15,7 +15,7 @@ export const socials = [
     label: "X (Twitter)",
     placeholder: "username",
     type: "url",
-    id: "twitter",
+    id: "x",
   },
   {
     label: "Instagram",

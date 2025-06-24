@@ -21,7 +21,7 @@ const initialReadmeContent: readmeFormTypes = {
   summary: "",
   socials: {
     github: "",
-    twitter: "",
+    x: "",
     linkedin: "",
     instagram: "",
     youtube: "",

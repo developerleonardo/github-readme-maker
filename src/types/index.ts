@@ -17,7 +17,7 @@ export interface readmeFormTypes {
   summary: string;
   socials: {
     github?: string;
-    twitter?: string;
+    x?: string;
     linkedin?: string;
     instagram?: string;
     youtube?: string;
@@ -30,7 +30,7 @@ export interface readmeFormTypes {
 
 export type socialsTypes =
   | "github"
-  | "twitter"
+  | "x"
   | "linkedin"
   | "instagram"
   | "youtube";
