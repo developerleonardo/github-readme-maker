@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/AppSidebar";
+import { Header } from "@/components/Header";
 import {
   SidebarInset,
   SidebarProvider,
@@ -9,9 +10,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarTrigger />
       <SidebarInset>
-        <section className="flex flex-col flex-1 p-4 items-center justify-center">
+        <Header />
+        <SidebarTrigger />
+        <section className="flex flex-col flex-1 p-8 items-center justify-center">
           {children}
         </section>
       </SidebarInset>
