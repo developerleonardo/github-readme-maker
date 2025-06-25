@@ -44,8 +44,8 @@ export const technologies = [
     label: "AWS",
   },
   {
-    id: "html",
-    label: "HTML",
+    id: "html5",
+    label: "HTML5",
   },
   {
     id: "css",
@@ -57,15 +57,15 @@ export const technologies = [
   },
   {
     id: "tailwindcss",
-    label: "Tailwind",
+    label: "TailwindCSS",
   },
   {
     id: "bootstrap",
     label: "Bootstrap",
   },
   {
-    id: "materialui",
-    label: "Material-UI",
+    id: "material/ui",
+    label: "MUI",
   },
   {
     id: "vuejs",

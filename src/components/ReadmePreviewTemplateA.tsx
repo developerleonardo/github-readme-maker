@@ -3,6 +3,7 @@ import {
   generateDescription,
   generateGreeting,
   generateSocialLinks,
+  generateTechnologies,
 } from "@/utils/readmeGenerators/templateA";
 import { SidebarSeparator } from "./ui/sidebar";
 import type { readmeFormTypes } from "@/types";
@@ -74,6 +75,14 @@ export const ReadmePreviewTemplateA = () => {
           <h2 className="text-2xl font-semibold mb-3">🌐 Socials</h2>
           <div className="flex flex-wrap mb-6">
             {generateSocialBadges(readmeContent)}
+          </div>
+        </>
+      )}
+      {readmeContent.techStack && readmeContent.techStack.length > 0 && (
+        <>
+          <h2 className="text-2xl font-semibold mb-3">🛠️ Tech Stack</h2>
+          <div className="flex flex-wrap mb-6">
+            {generateTechnologies(readmeContent)}
           </div>
         </>
       )}
