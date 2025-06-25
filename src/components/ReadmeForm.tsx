@@ -9,15 +9,19 @@ import { technologies } from "@/data/techStack";
 import { Button } from "./ui/button";
 import { useReadmeFormStore } from "@/stores/readmeForm/readmeForm.store";
 import { GithubStatsCheckbox } from "./GithubStatsCheckbox";
+import { generateMarkDownTemplateA } from "@/utils/readmeGenerators/templateA";
+import { useReadmeStore } from "@/stores";
 
 export const ReadmeForm = () => {
   const readmeContent = useReadmeFormStore((state) => state.readmeContent);
   const updateField = useReadmeFormStore((state) => state.updateField);
   const resetForm = useReadmeFormStore((state) => state.resetForm);
+  const githubUser = useReadmeStore((state) => state.githubUser?.login);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted with data: ", readmeContent);
+    const markdown = generateMarkDownTemplateA(readmeContent, githubUser);
+    console.log(markdown);
   };
 
   const handleInputUpdate = (

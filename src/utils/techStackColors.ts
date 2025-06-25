@@ -23,3 +23,11 @@ export const techStackColors: Record<string, string> = {
   shadcn: "000000",
   vite: "646CFF",
 };
+
+export const platformColors: Record<string, string> = {
+  linkedin: "0077B5",
+  youtube: "FF0000",
+  instagram: "E4405F",
+  x: "000000",
+  github: "181717",
+};

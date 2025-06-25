@@ -4,7 +4,7 @@ import {
   generateGreeting,
   generateSocialLinks,
   generateTechnologies,
-} from "@/utils/readmeGenerators/templateA";
+} from "@/utils/readmeGenerators/markDownFunctions";
 import { SidebarSeparator } from "./ui/sidebar";
 import type { readmeFormTypes } from "@/types";
 import { useReadmeStore } from "@/stores";

@@ -20,6 +20,14 @@ export const generateSocialLinks = (readmeContent: readmeFormTypes) => {
   return Object.entries(readmeContent.socials).filter(([, value]) => value); // Filter out empty values
 };
 
+export const generateBadgeUrl = (
+  tech: string,
+  color: string,
+  logo: string
+): string => {
+  return `https://img.shields.io/badge/${tech}-${color}?style=flat-square&logo=${logo}&logoColor=white`;
+};
+
 export const generateTechnologies = (
   readmeContent: readmeFormTypes
 ): React.ReactNode => {
@@ -31,10 +39,11 @@ export const generateTechnologies = (
         technologies.find(
           (item) => item.id.toLowerCase() === tech.toLowerCase()
         )?.label || tech;
+      const url = generateBadgeUrl(tech, color, logo);
       return (
         <img
           key={tech}
-          src={`https://img.shields.io/badge/${tech}-${color}?style=flat-square&logo=${logo}&logoColor=white`}
+          src={url}
           alt={`${tech} badge`}
           className="inline-block mr-2 mb-2 h-6"
         />
