@@ -71,13 +71,15 @@ export const ReadmePreviewTemplateA = () => {
       )}
       {readmeContent.summary && (
         <>
-          <h2 className="text-2xl font-semibold mb-3">💫 About Me</h2>
+          <h2 className="text-2xl font-semibold mb-1">💫 About Me</h2>
+          <SidebarSeparator className="mb-4" />
           <p className="text-base mb-6">{generateDescription(readmeContent)}</p>
         </>
       )}
       {Object.values(readmeContent.socials).some((value) => value !== "") && (
         <>
-          <h2 className="text-2xl font-semibold mb-3">🌐 Socials</h2>
+          <h2 className="text-2xl font-semibold mb-1">🌐 Socials</h2>
+          <SidebarSeparator className="mb-4" />
           <div className="flex flex-wrap mb-6">
             {generateSocialBadges(readmeContent)}
           </div>
@@ -85,7 +87,8 @@ export const ReadmePreviewTemplateA = () => {
       )}
       {readmeContent.techStack && readmeContent.techStack.length > 0 && (
         <>
-          <h2 className="text-2xl font-semibold mb-3">🛠️ Tech Stack</h2>
+          <h2 className="text-2xl font-semibold mb-1">🛠️ Tech Stack</h2>
+          <SidebarSeparator className="mb-4" />
           <div className="flex flex-wrap mb-6">
             {generateTechnologies(readmeContent)}
           </div>
@@ -93,7 +96,8 @@ export const ReadmePreviewTemplateA = () => {
       )}
       {isShowingGithubStats && (
         <>
-          <h2 className="text-2xl font-semibold mb-3">📊 GitHub Stats</h2>
+          <h2 className="text-2xl font-semibold mb-1">📊 GitHub Stats</h2>
+          <SidebarSeparator className="mb-4" />
           <img
             src={`https://github-readme-stats.vercel.app/api?username=${githubUser?.login}&show_icons=true&theme=dark`}
             alt="GitHub Stats"
@@ -122,7 +126,8 @@ export const ReadmePreviewTemplateA = () => {
       )}
       {isShowingGithubTrophies && (
         <>
-          <h2 className="text-2xl font-semibold mb-3">🏆 GitHub Trophies</h2>
+          <h2 className="text-2xl font-semibold mb-1">🏆 GitHub Trophies</h2>
+          <SidebarSeparator className="mb-4" />
           <img
             src={`https://github-profile-trophy.vercel.app/?username=${githubUser?.login}&theme=dark&no-frame=false&no-bg=true&margin-w=4`}
             alt="GitHub Trophies"
@@ -133,7 +138,8 @@ export const ReadmePreviewTemplateA = () => {
       )}
       {isShowingTopRepos && (
         <>
-          <h2 className="text-2xl font-semibold mb-3">📈 Top Repositories</h2>
+          <h2 className="text-2xl font-semibold mb-1">📈 Top Repositories</h2>
+          <SidebarSeparator className="mb-4" />
           <img
             src={`https://github-contributor-stats.vercel.app/api?username=${githubUser?.login}&limit=5&theme=dark&combine_all_yearly_contributions=true`}
             alt="Top Repositories"
