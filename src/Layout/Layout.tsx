@@ -13,7 +13,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <SidebarInset>
         <Header />
         <SidebarTrigger />
-        <section className="flex flex-col flex-1 p-8">{children}</section>
+        <section className="flex flex-col flex-1 p-8 items-center">
+          {children}
+        </section>
       </SidebarInset>
     </SidebarProvider>
   );
