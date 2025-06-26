@@ -52,7 +52,7 @@ export const generateTechnologyBadges = (
         ?.label || tech;
     const color = techStackColors[tech.toLowerCase()] || "blue";
     const badgeUrl = generateBadgeUrl(tech, color, logo);
-    return badgeUrl;
+    return `![](${badgeUrl})`;
   });
 };
 
