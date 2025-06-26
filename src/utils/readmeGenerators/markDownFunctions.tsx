@@ -1,5 +1,5 @@
 import type { readmeFormTypes } from "@/types";
-import { techStackColors } from "../techStackColors";
+import { platformColors, techStackColors } from "../techStackColors";
 import { technologies } from "@/data/techStack";
 
 export const generateGreeting = (readmeContent: readmeFormTypes): string => {
@@ -28,27 +28,59 @@ export const generateBadgeUrl = (
   return `https://img.shields.io/badge/${tech}-${color}?style=flat-square&logo=${logo}&logoColor=white`;
 };
 
-export const generateTechnologies = (
+export const generateSocialBadges = (
   readmeContent: readmeFormTypes
-): React.ReactNode => {
-  if (readmeContent.techStack && readmeContent.techStack.length > 0) {
-    const techList = readmeContent.techStack;
-    return techList.map((tech) => {
-      const color = techStackColors[tech.toLowerCase()] || "blue";
-      const logo =
-        technologies.find(
-          (item) => item.id.toLowerCase() === tech.toLowerCase()
-        )?.label || tech;
-      const url = generateBadgeUrl(tech, color, logo);
-      return (
-        <img
-          key={tech}
-          src={url}
-          alt={`${tech} badge`}
-          className="inline-block mr-2 mb-2 h-6"
-        />
-      );
-    });
-  }
-  return null;
+): string[] => {
+  const socialLinks = generateSocialLinks(readmeContent);
+  return socialLinks.map(([platform, url]) => {
+    const color = platformColors[platform.toLowerCase()] || "blue";
+    return `[![${platform}](https://img.shields.io/badge/${
+      platform == "x"
+        ? "Twitter"
+        : platform.charAt(0).toUpperCase() + platform.slice(1)
+    }-${color}?style=flat-square&logo=${platform.toLowerCase()}&logoColor=white)](${url})`;
+  });
+};
+
+export const generateTechnologyBadges = (
+  readmeContent: readmeFormTypes
+): string[] => {
+  const techStack = readmeContent.techStack || [];
+  return techStack.map((tech) => {
+    const logo =
+      technologies.find((item) => item.id.toLowerCase() === tech.toLowerCase())
+        ?.label || tech;
+    const color = techStackColors[tech.toLowerCase()] || "blue";
+    const badgeUrl = generateBadgeUrl(tech, color, logo);
+    return badgeUrl;
+  });
+};
+
+export const generateGithubStats = (
+  githubUser: string | undefined,
+  theme: string
+) => {
+  if (!githubUser) return "";
+  return `![](https://github-readme-stats.vercel.app/api?username=${githubUser}&theme=${theme}&hide_border=false&include_all_commits=true&count_private=true)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=${githubUser}&theme=${theme}&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUser}&theme=${theme}&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+  `;
+};
+
+export const generateGithubTrophies = (
+  githubUser: string | undefined,
+  theme: string
+) => {
+  if (!githubUser) return "";
+  return `![](https://github-profile-trophy.vercel.app/?username=${githubUser}&theme=${theme}&no-frame=false&no-bg=true&margin-w=4)
+    `;
+};
+
+export const generateTopRepos = (
+  githubUser: string | undefined,
+  theme: string
+) => {
+  if (!githubUser) return "";
+  return `![](https://github-contributor-stats.vercel.app/api?username=${githubUser}&limit=5&theme=${theme}&combine_all_yearly_contributions=true)
+    `;
 };

@@ -2,12 +2,13 @@ import { useReadmeFormStore } from "@/stores/readmeForm/readmeForm.store";
 import {
   generateDescription,
   generateGreeting,
-  generateSocialLinks,
-  generateTechnologies,
 } from "@/utils/readmeGenerators/markDownFunctions";
 import { SidebarSeparator } from "./ui/sidebar";
-import type { readmeFormTypes } from "@/types";
 import { useReadmeStore } from "@/stores";
+import {
+  generateSocialBadgesPreview,
+  generateTechnologies,
+} from "@/utils/previewGenerators/preview";
 
 export const ReadmePreviewTemplateA = () => {
   const { readmeContent } = useReadmeFormStore((state) => state);
@@ -20,40 +21,6 @@ export const ReadmePreviewTemplateA = () => {
       </div>
     );
   }
-
-  const generateSocialBadges = (readmeContent: readmeFormTypes) => {
-    const socialLinks = generateSocialLinks(readmeContent);
-
-    const platformColors: Record<string, string> = {
-      linkedin: "0077B5",
-      youtube: "FF0000",
-      instagram: "E4405F",
-      x: "000000",
-      github: "181717",
-    };
-    return socialLinks.map(([platform, url]) => {
-      const color = platformColors[platform.toLowerCase()] || "blue";
-      return (
-        <a
-          key={platform}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mr-2 mb-2"
-        >
-          <img
-            src={`https://img.shields.io/badge/${
-              platform == "x"
-                ? "Twitter"
-                : platform.charAt(0).toUpperCase() + platform.slice(1)
-            }-${color}?style=flat-square&logo=${platform.toLowerCase()}&logoColor=white`}
-            alt={`${platform} badge`}
-            className="h-6"
-          />
-        </a>
-      );
-    });
-  };
 
   const isShowingGithubStats = readmeContent.showGithubStats;
   const isShowingGithubTrophies = readmeContent.showGithubTrophies;
@@ -81,7 +48,7 @@ export const ReadmePreviewTemplateA = () => {
           <h2 className="text-2xl font-semibold mb-1">🌐 Socials</h2>
           <SidebarSeparator className="mb-4" />
           <div className="flex flex-wrap mb-6">
-            {generateSocialBadges(readmeContent)}
+            {generateSocialBadgesPreview(readmeContent)}
           </div>
         </>
       )}
