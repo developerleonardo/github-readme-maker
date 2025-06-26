@@ -7,7 +7,7 @@ import { ReadmeForm } from "./ReadmeForm";
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar side="left">
       <SidebarHeader>
         <h2 className="text-lg font-semibold">Readme Generator</h2>
       </SidebarHeader>

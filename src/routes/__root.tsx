@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 export const Route = createRootRoute({
   component: () => (
     <>
-      <main className="flex min-h-svh flex-col items-center">
+      <main className="min-h-svh">
         <Outlet />
       </main>
       <TanStackRouterDevtools />
