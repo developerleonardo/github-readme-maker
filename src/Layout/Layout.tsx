@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/AppSidebar";
+import { DialogWithMD } from "@/components/DialogWithMD";
 import { Header } from "@/components/Header";
 import { RightSidebar } from "@/components/RightSidebar";
 import {
@@ -10,6 +11,7 @@ import {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <DialogWithMD />
       <Header />
       <div className="grid grid-cols-[auto_1fr_auto] w-full h-full justify-center">
         <SidebarProvider>

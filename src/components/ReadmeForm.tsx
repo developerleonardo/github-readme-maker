@@ -11,16 +11,19 @@ import { useReadmeFormStore } from "@/stores/readmeForm/readmeForm.store";
 import { GithubStatsCheckbox } from "./GithubStatsCheckbox";
 import { generateMarkDownTemplateA } from "@/utils/readmeGenerators/templateA";
 import { useReadmeStore } from "@/stores";
+import { useMarkdownStore } from "@/stores/markdown/markdown.store";
 
 export const ReadmeForm = () => {
   const readmeContent = useReadmeFormStore((state) => state.readmeContent);
   const updateField = useReadmeFormStore((state) => state.updateField);
   const resetForm = useReadmeFormStore((state) => state.resetForm);
   const githubUser = useReadmeStore((state) => state.githubUser?.login);
+  const setIsModalOpen = useMarkdownStore((state) => state.setIsModalOpen);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const markdown = generateMarkDownTemplateA(readmeContent, githubUser);
+    setIsModalOpen(true);
     console.log(markdown);
   };
 

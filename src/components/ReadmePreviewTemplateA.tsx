@@ -27,7 +27,7 @@ export const ReadmePreviewTemplateA = () => {
   const isShowingTopRepos = readmeContent.showTopRepos;
 
   return (
-    <div className="flex flex-col w-full h-full max-w-[894px]">
+    <div className="flex flex-col w-full max-w-[894px] h-fit">
       {readmeContent.name && (
         <>
           <h1 className="text-3xl font-bold mb-2 text-center">
