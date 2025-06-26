@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <AppSidebar />
           <SidebarTrigger />
         </SidebarProvider>
-        <SidebarInset>
+        <SidebarInset className="overflow-y-auto h-[calc(100vh-40px)]">
           <section className="flex flex-col flex-1 p-8 items-center">
             {children}
           </section>

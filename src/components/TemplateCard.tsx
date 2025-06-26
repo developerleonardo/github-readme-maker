@@ -11,6 +11,9 @@ export const TemplateCard = ({ title, imageUrl }: TemplateCardProps) => {
           src={imageUrl}
           alt={title}
           className="w-full h-full rounded-lg object-cover rounded-b-none"
+          width={165.5}
+          height={192}
+          loading="lazy"
         />
       </figure>
       <h3 className="mt-2 text-base font-semibold">{title}</h3>
