@@ -1,6 +1,6 @@
 import type { readmeFormTypes } from "@/types";
 
-export const generateMarkDownTemplateE = (
+export const generateMarkDownTemplateD = (
   readmeContent: readmeFormTypes,
   githubUser: string | undefined
 ): string => {
