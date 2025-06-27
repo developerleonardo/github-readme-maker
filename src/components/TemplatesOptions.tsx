@@ -8,7 +8,8 @@ export const TemplatesOptions = () => {
         <TemplateCard
           key={template.title}
           title={template.title}
-          imageUrl={template.url}
+          imageSrc={template.imageSrc}
+          template={template.template}
         />
       ))}
     </div>

@@ -1,22 +1,34 @@
-export const templates = [
+import type { templateOptionCardsTypes } from "@/types";
+
+export const templates: Array<templateOptionCardsTypes> = [
   {
     title: "Classical",
-    url: "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc:
+      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    template: "templateA",
   },
   {
     title: "Modern",
-    url: "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc:
+      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    template: "templateB",
   },
   {
     title: "Minimalist",
-    url: "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc:
+      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    template: "templateC",
   },
   {
     title: "Rustic",
-    url: "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc:
+      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    template: "templateD",
   },
   {
     title: "Industrial",
-    url: "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc:
+      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    template: "templateE",
   },
 ];

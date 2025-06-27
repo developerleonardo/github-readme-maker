@@ -3,7 +3,7 @@ import { type templateTypes } from "@/types";
 
 interface MarkdownStore {
   markdownContent: string;
-  selectedTemplate: "templateA" | "templateB";
+  selectedTemplate: templateTypes;
   setMarkdownContent: (content: templateTypes) => void;
   setSelectedTemplate: (template: templateTypes) => void;
   resetMarkdownContent: () => void;

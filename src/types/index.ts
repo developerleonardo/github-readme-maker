@@ -35,4 +35,15 @@ export type socialsTypes =
   | "instagram"
   | "youtube";
 
-export type templateTypes = "templateA" | "templateB";
+export type templateTypes =
+  | "templateA"
+  | "templateB"
+  | "templateC"
+  | "templateD"
+  | "templateE";
+
+export interface templateOptionCardsTypes {
+  title: string;
+  imageSrc: string;
+  template: templateTypes;
+}
