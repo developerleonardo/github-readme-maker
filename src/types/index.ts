@@ -34,3 +34,5 @@ export type socialsTypes =
   | "linkedin"
   | "instagram"
   | "youtube";
+
+export type templateTypes = "templateA" | "templateB";

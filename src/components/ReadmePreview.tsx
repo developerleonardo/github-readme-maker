@@ -1,3 +1,4 @@
+import { useMarkdownStore } from "@/stores/markdown/markdown.store";
 import { ReadmePreviewTemplateA } from "./ReadmePreviewTemplateA";
 import { ReadmePreviewTemplateB } from "./ReadmePreviewTemplateB";
 
@@ -7,7 +8,7 @@ const templateMap = {
 };
 
 export const ReadmePreview = () => {
-  const selectedTemplate = "templateA";
+  const selectedTemplate = useMarkdownStore((state) => state.selectedTemplate);
 
   const TemplateComponent =
     templateMap[selectedTemplate] ?? ReadmePreviewTemplateA;
