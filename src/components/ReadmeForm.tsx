@@ -9,9 +9,9 @@ import { technologies } from "@/data/techStack";
 import { Button } from "./ui/button";
 import { useReadmeFormStore } from "@/stores/readmeForm/readmeForm.store";
 import { GithubStatsCheckbox } from "./GithubStatsCheckbox";
-import { generateMarkDownTemplateA } from "@/utils/readmeGenerators/templateA";
 import { useReadmeStore } from "@/stores";
 import { useMarkdownStore } from "@/stores/markdown/markdown.store";
+import { generateMarkDownSelectedTemplate } from "@/utils/readmeGenerators/markDownFunctions";
 
 export const ReadmeForm = () => {
   const readmeContent = useReadmeFormStore((state) => state.readmeContent);
@@ -19,10 +19,15 @@ export const ReadmeForm = () => {
   const resetForm = useReadmeFormStore((state) => state.resetForm);
   const githubUser = useReadmeStore((state) => state.githubUser?.login);
   const setIsModalOpen = useMarkdownStore((state) => state.setIsModalOpen);
+  const selectedTemplate = useMarkdownStore((state) => state.selectedTemplate);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const markdown = generateMarkDownTemplateA(readmeContent, githubUser);
+    const markdown = generateMarkDownSelectedTemplate(
+      readmeContent,
+      githubUser,
+      selectedTemplate
+    );
     setIsModalOpen(true);
     console.log(markdown);
   };

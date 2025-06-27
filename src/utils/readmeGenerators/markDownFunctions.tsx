@@ -1,6 +1,8 @@
 import type { readmeFormTypes } from "@/types";
 import { platformColors, techStackColors } from "../techStackColors";
 import { technologies } from "@/data/techStack";
+import { generateMarkDownTemplateA } from "./templateA";
+import { generateMarkDownTemplateB } from "./templateB";
 
 export const generateGreeting = (readmeContent: readmeFormTypes): string => {
   if (readmeContent.name) {
@@ -83,4 +85,24 @@ export const generateTopRepos = (
   if (!githubUser) return "";
   return `![](https://github-contributor-stats.vercel.app/api?username=${githubUser}&limit=5&theme=${theme}&combine_all_yearly_contributions=true)
     `;
+};
+
+export const generateMarkDownSelectedTemplate = (
+  readmeContent: readmeFormTypes,
+  githubUser: string | undefined,
+  selectedTemplate: string
+): string => {
+  if (!selectedTemplate) {
+    return generateMarkDownTemplateA(readmeContent, githubUser);
+  }
+  switch (selectedTemplate) {
+    case "templateA":
+      return generateMarkDownTemplateA(readmeContent, githubUser);
+
+    case "templateB":
+      return generateMarkDownTemplateB(readmeContent, githubUser);
+
+    default:
+      return generateMarkDownTemplateA(readmeContent, githubUser);
+  }
 };

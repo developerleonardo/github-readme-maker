@@ -57,15 +57,3 @@ ${topRepos}
 <!-- Proudly created with Github Readme Maker ( https://github-readme-maker-pi.vercel.app/ ) -->
   `;
 };
-
-export const generateMarkDownSelectedTemplate = (
-  readmeContent: readmeFormTypes,
-  githubUser: string | undefined,
-  selectedTemplate: string
-): string => {
-  if (selectedTemplate !== "templateA") {
-    throw new Error("Invalid template selected");
-  }
-  // For now, only templateA is implemented
-  return generateMarkDownTemplateA(readmeContent, githubUser);
-};
