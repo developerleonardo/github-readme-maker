@@ -25,35 +25,40 @@ export const generateMarkDownTemplateA = (
   readmeContent: readmeFormTypes,
   githubUser: string | undefined
 ): string => {
-  const greeting = generateGreetingForTemplateA(readmeContent) || "";
-  const description = generateDescription(readmeContent) || "";
-  const socialLinks = generateSocialBadges(readmeContent) || [];
-  const technologies = generateTechnologyBadges(readmeContent) || [];
-  const githubStats = generateGithubStats(githubUser, "dark") || "";
-  const githubTrophies = generateGithubTrophies(githubUser, "dark") || "";
-  const topRepos = generateTopRepos(githubUser, "dark") || "";
+  const greeting = generateGreetingForTemplateA(readmeContent);
+  const description = generateDescription(readmeContent);
+  const socialLinks = generateSocialBadges(readmeContent);
+  const technologies = generateTechnologyBadges(readmeContent);
+  const githubStats = generateGithubStats(readmeContent, githubUser, "dark");
+  const githubTrophies = generateGithubTrophies(
+    readmeContent,
+    githubUser,
+    "dark"
+  );
+  const topRepos = generateTopRepos(readmeContent, githubUser, "dark");
 
-  return `
-${greeting}
+  const sections: string[] = [];
 
-## 💫 About Me
-${description}
+  if (greeting) sections.push(`${greeting}\n`);
 
-## 🌐 Socials
-${socialLinks.join(" ")}
+  if (description) sections.push(`## 💫 About Me\n${description}\n`);
 
-## 🛠️ Tech Stack
-${technologies.join(" ")}
+  if (socialLinks && socialLinks.length > 0)
+    sections.push(`## 🌐 Socials\n${socialLinks.join(" ")}\n`);
 
-## 📊 GitHub Stats
-${githubStats}
+  if (technologies && technologies.length > 0)
+    sections.push(`## 🛠️ Tech Stack\n${technologies.join(" ")}\n`);
 
-## 🏆 GitHub Trophies
-${githubTrophies}
+  if (githubStats) sections.push(`## 📊 GitHub Stats\n${githubStats}\n`);
 
-## 📈 Top Repositories
-${topRepos}
+  if (githubTrophies)
+    sections.push(`## 🏆 GitHub Trophies\n${githubTrophies}\n`);
 
-<!-- Proudly created with Github Readme Maker ( https://github-readme-maker-pi.vercel.app/ ) -->
-  `;
+  if (topRepos) sections.push(`## 📈 Top Repositories\n${topRepos}\n`);
+
+  sections.push(
+    `<!-- Proudly created with Github Readme Maker ( https://github-readme-maker-pi.vercel.app/ ) -->`
+  );
+
+  return sections.join("\n");
 };

@@ -20,6 +20,9 @@ export const ReadmeForm = () => {
   const githubUser = useReadmeStore((state) => state.githubUser?.login);
   const setIsModalOpen = useMarkdownStore((state) => state.setIsModalOpen);
   const selectedTemplate = useMarkdownStore((state) => state.selectedTemplate);
+  const setMarkdownContent = useMarkdownStore(
+    (state) => state.setMarkdownContent
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,7 +32,7 @@ export const ReadmeForm = () => {
       selectedTemplate
     );
     setIsModalOpen(true);
-    console.log(markdown);
+    setMarkdownContent(markdown);
   };
 
   const handleInputUpdate = (

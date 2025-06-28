@@ -4,7 +4,7 @@ import { type templateTypes } from "@/types";
 interface MarkdownStore {
   markdownContent: string;
   selectedTemplate: templateTypes;
-  setMarkdownContent: (content: templateTypes) => void;
+  setMarkdownContent: (content: string) => void;
   setSelectedTemplate: (template: templateTypes) => void;
   resetMarkdownContent: () => void;
   isModalOpen: boolean;
