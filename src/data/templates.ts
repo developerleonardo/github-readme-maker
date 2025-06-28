@@ -8,25 +8,25 @@ export const templates: Array<templateOptionCardsTypes> = [
     template: "templateA",
   },
   {
-    title: "Modern",
+    title: "Dynamic",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateB",
   },
   {
-    title: "Minimalist",
+    title: "Descriptive",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateC",
   },
   {
-    title: "Rustic",
+    title: "Code",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateD",
   },
   {
-    title: "Industrial",
+    title: "Minimalist",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateE",

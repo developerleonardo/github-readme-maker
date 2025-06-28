@@ -93,7 +93,6 @@ export const DialogWithMD = () => {
               type="button"
               onClick={() => {
                 navigator.clipboard.writeText(markdownContent);
-                setIsModalOpen(false);
               }}
             >
               <svg

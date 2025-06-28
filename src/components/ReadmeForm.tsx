@@ -90,7 +90,7 @@ export const ReadmeForm = () => {
         <GithubStatsCheckbox />
       </SectionForm>
       <div className="flex items-center justify-center gap-3 mt-8">
-        <Button variant="secondary" onClick={() => resetForm()}>
+        <Button type="button" variant="secondary" onClick={() => resetForm()}>
           Reset
         </Button>
         <Button type="submit">Generate Readme</Button>
