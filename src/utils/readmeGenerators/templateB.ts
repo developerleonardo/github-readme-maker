@@ -79,7 +79,10 @@ export const generateMarkDownTemplateB = (
 
   const sections: string[] = [];
   if (greeting) sections.push(`${greeting}\n`);
-  if (socialLinks && socialLinks.length > 0) sections.push(`${socialLinks}\n`);
+  if (socialLinks && socialLinks.length > 0)
+    sections.push(
+      `<div align="center">\n\n${socialLinks.join(" ")}\n\n</div>\n\n`
+    );
   if (description) sections.push(`${description}\n`);
   if (technologies && technologies.length > 0)
     sections.push(`${technologies}\n`);
