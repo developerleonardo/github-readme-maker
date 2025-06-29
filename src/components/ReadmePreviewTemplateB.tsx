@@ -92,35 +92,30 @@ export const ReadmePreviewTemplateB = () => {
             GitHub Stats
           </h2>
           <SidebarSeparator className="mb-4" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-8">
-            <figure className="flex items-center justify-center w-full h-full">
-              <img
-                src={`https://github-readme-stats.vercel.app/api?username=${githubUser?.login}&show_icons=true&theme=github_dark`}
-                alt="GitHub Stats"
-                loading="lazy"
-                width={450}
-                height={195}
-                className="object-cover w-full h-full"
-              />
-            </figure>
-            <figure className="flex items-center justify-center w-full h-full">
-              <img
-                src={`https://github-readme-streak-stats.herokuapp.com/?user=${githubUser?.login}&theme=blue_navy&hide_border=false`}
-                alt="GitHub Streak Stats"
-                className="object-cover w-full h-full"
-                loading="lazy"
-                width={450}
-                height={195}
-              />
-            </figure>
-            <img
-              src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUser?.login}&theme=github_dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact`}
-              alt="GitHub Top Languages"
-              loading="lazy"
-              width={300}
-              height={165}
-            />
-          </div>
+          <img
+            src={`https://github-readme-stats.vercel.app/api?username=${githubUser?.login}&show_icons=true&theme=react`}
+            alt="GitHub Stats"
+            className="mb-6"
+            loading="lazy"
+            width={450}
+            height={195}
+          />
+          <img
+            src={`https://github-readme-streak-stats.herokuapp.com/?user=${githubUser?.login}&theme=react&hide_border=false`}
+            alt="GitHub Streak Stats"
+            className="mb-6"
+            loading="lazy"
+            width={450}
+            height={195}
+          />
+          <img
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUser?.login}&theme=react&hide_border=false&include_all_commits=true&count_private=true&layout=compact`}
+            alt="GitHub Top Languages"
+            className="mb-6"
+            loading="lazy"
+            width={300}
+            height={165}
+          />
         </>
       )}
       {isShowingGithubTrophies && (
@@ -135,7 +130,7 @@ export const ReadmePreviewTemplateB = () => {
           </h2>
           <SidebarSeparator className="mb-4" />
           <img
-            src={`https://github-profile-trophy.vercel.app/?username=${githubUser?.login}&theme=github_dark&no-frame=false&no-bg=true&margin-w=4`}
+            src={`https://github-profile-trophy.vercel.app/?username=${githubUser?.login}&theme=react&no-frame=false&no-bg=true&margin-w=4`}
             alt="GitHub Trophies"
             className="mb-6"
             loading="lazy"
@@ -154,7 +149,7 @@ export const ReadmePreviewTemplateB = () => {
           </h2>
           <SidebarSeparator className="mb-4" />
           <img
-            src={`https://github-contributor-stats.vercel.app/api?username=${githubUser?.login}&limit=5&theme=github_dark&combine_all_yearly_contributions=true`}
+            src={`https://github-contributor-stats.vercel.app/api?username=${githubUser?.login}&limit=5&theme=react&combine_all_yearly_contributions=true`}
             alt="Top Repositories"
             className="mb-6"
             loading="lazy"
