@@ -14,19 +14,19 @@ export const templates: Array<templateOptionCardsTypes> = [
     template: "templateB",
   },
   {
-    title: "Descriptive",
+    title: "Code",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateC",
   },
   {
-    title: "Code",
+    title: "Minimalist",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateD",
   },
   {
-    title: "Minimalist",
+    title: "Anime",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateE",
