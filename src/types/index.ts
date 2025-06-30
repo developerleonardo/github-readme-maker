@@ -39,8 +39,7 @@ export type templateTypes =
   | "templateA"
   | "templateB"
   | "templateC"
-  | "templateD"
-  | "templateE";
+  | "templateD";
 
 export interface templateOptionCardsTypes {
   title: string;

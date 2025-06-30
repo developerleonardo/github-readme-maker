@@ -5,7 +5,6 @@ import { generateMarkDownTemplateA } from "./templateA";
 import { generateMarkDownTemplateB } from "./templateB";
 import { generateMarkDownTemplateC } from "./templateC";
 import { generateMarkDownTemplateD } from "./templateD";
-import { generateMarkDownTemplateE } from "./templateE";
 
 export const generateGreeting = (readmeContent: readmeFormTypes): string => {
   if (readmeContent.name) {
@@ -126,9 +125,6 @@ export const generateMarkDownSelectedTemplate = (
 
     case "templateD":
       return generateMarkDownTemplateD(readmeContent, githubUser);
-
-    case "templateE":
-      return generateMarkDownTemplateE(readmeContent, githubUser);
 
     default:
       return generateMarkDownTemplateA(readmeContent, githubUser);
