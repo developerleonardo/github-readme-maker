@@ -82,7 +82,7 @@ export const ReadmeForm = () => {
       <SectionForm title="Tech Stack">
         <div className="grid grid-cols-3 gap-x-2 gap-y-4">
           {technologies.map((tech) => (
-            <CustomCheckbox id={tech.id} label={tech.label} />
+            <CustomCheckbox key={tech.id} id={tech.id} label={tech.label} />
           ))}
         </div>
       </SectionForm>
