@@ -96,5 +96,9 @@ export const generateMarkDownTemplateB = (
       `<img src="https://slackmojis.com/emojis/3957-winner/download" width="20" /> **Top Repositories** \n\n${topRepos}\n`
     );
 
+  sections.push(
+    `<!-- Proudly created with Github Readme Maker ( https://github-readme-maker-pi.vercel.app/ ) -->`
+  );
+
   return sections.join("\n");
 };

@@ -100,5 +100,8 @@ export const generateMarkDownTemplateD = (
     sections.push(
       `<h2><img src="https://slackmojis.com/emojis/50155-vegeta-smile/download" width="30"> <b>Top Repositories<b/></h2> \n\n${topRepos}\n`
     );
+  sections.push(
+    `<!-- Proudly created with Github Readme Maker ( https://github-readme-maker-pi.vercel.app/ ) -->`
+  );
   return sections.join("\n");
 };
