@@ -57,7 +57,7 @@ export const ReadmeForm = () => {
       </SectionForm>
       <SectionForm title="About Me">
         <div className="grid w-full max-w-sm items-center gap-1">
-          <Label htmlFor="message">Summary</Label>
+          <Label htmlFor="summary">Summary</Label>
           <Textarea
             placeholder="Type your message here."
             id="summary"
