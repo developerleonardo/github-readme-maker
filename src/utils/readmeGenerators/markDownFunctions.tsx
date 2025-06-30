@@ -74,6 +74,16 @@ export const generateGithubStats = (
   `;
 };
 
+export const generateGithubStatsDesignRow = (
+  readmeContent: readmeFormTypes,
+  githubUser: string | undefined,
+  theme: string
+) => {
+  if (!githubUser) return "";
+  if (readmeContent.showGithubStats === false) return "";
+  return `<img src="https://github-readme-stats.vercel.app/api?username=${githubUser}&theme=${theme}&hide_border=false&include_all_commits=true&count_private=true" align="left" /> <img src="https://github-readme-streak-stats.herokuapp.com/?user=${githubUser}&theme=${theme}&hide_border=false" align="left" />\n <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUser}&theme=${theme}&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />`;
+};
+
 export const generateGithubTrophies = (
   readmeContent: readmeFormTypes,
   githubUser: string | undefined,
