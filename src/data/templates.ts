@@ -20,13 +20,13 @@ export const templates: Array<templateOptionCardsTypes> = [
     template: "templateC",
   },
   {
-    title: "Minimalist",
+    title: "Anime",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateD",
   },
   {
-    title: "Anime",
+    title: "Other",
     imageSrc:
       "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
     template: "templateE",
