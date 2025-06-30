@@ -23,7 +23,7 @@ export const TemplateCard = ({
         <img
           src={imageSrc}
           alt={title}
-          className="w-full h-full rounded-lg object-cover rounded-b-none"
+          className="w-full h-full rounded-lg object-cover rounded-b-none object-top"
           width={165.5}
           height={192}
           loading="lazy"

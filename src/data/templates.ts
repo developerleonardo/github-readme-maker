@@ -3,26 +3,22 @@ import type { templateOptionCardsTypes } from "@/types";
 export const templates: Array<templateOptionCardsTypes> = [
   {
     title: "Classical",
-    imageSrc:
-      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc: "/img/templateA.webp",
     template: "templateA",
   },
   {
     title: "Dynamic",
-    imageSrc:
-      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc: "/img/templateB.webp",
     template: "templateB",
   },
   {
     title: "Typing mode",
-    imageSrc:
-      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc: "/img/templateC.webp",
     template: "templateC",
   },
   {
     title: "Anime",
-    imageSrc:
-      "https://cdn.pixabay.com/photo/2021/08/17/23/50/vintage-6554322_960_720.jpg",
+    imageSrc: "/img/templateD.webp",
     template: "templateD",
   },
 ];
