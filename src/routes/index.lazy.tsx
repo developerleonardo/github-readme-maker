@@ -108,7 +108,7 @@ function Index() {
         </Form>
       </section>
       <img
-        src="./img/hero-project.webp"
+        src="./img/onboarding.webp"
         alt="Hero image"
         width={571}
         height={390}
