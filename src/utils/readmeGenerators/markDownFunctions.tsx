@@ -29,7 +29,9 @@ export const generateBadgeUrl = (
   color: string,
   logo: string
 ): string => {
-  return `https://img.shields.io/badge/${tech}-${color}?style=flat-square&logo=${logo}&logoColor=white`;
+  return `https://img.shields.io/badge/${
+    tech.charAt(0).toUpperCase() + tech.slice(1)
+  }-${color}?style=flat-square&logo=${logo}&logoColor=white`;
 };
 
 export const generateSocialBadges = (
