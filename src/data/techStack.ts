@@ -13,7 +13,7 @@ export const technologies = [
   { id: "vite", label: "Vite" },
 
   // CSS Frameworks
-  { id: "css3", label: "CSS3" },
+  { id: "css", label: "CSS" },
   { id: "sass", label: "Sass" },
   { id: "tailwindcss", label: "Tailwind CSS" },
   { id: "bootstrap", label: "Bootstrap" },

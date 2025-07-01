@@ -13,7 +13,7 @@ export const techStackColors: Record<string, string> = {
   vite: "646CFF",
 
   // CSS / UI Frameworks
-  css3: "1572B6",
+  css: "1572B6",
   sass: "CC6699",
   tailwindcss: "06B6D4",
   bootstrap: "7952B3",
