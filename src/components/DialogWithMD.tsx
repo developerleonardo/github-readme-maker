@@ -11,11 +11,22 @@ import {
 import { Label } from "@/components/ui/label";
 import { useMarkdownStore } from "@/stores/markdown/markdown.store";
 import { Textarea } from "./ui/textarea";
+import { useState } from "react";
 
 export const DialogWithMD = () => {
   const markdownContent = useMarkdownStore((state) => state.markdownContent);
   const isModalOpen = useMarkdownStore((state) => state.isModalOpen);
   const setIsModalOpen = useMarkdownStore((state) => state.setIsModalOpen);
+
+  const [isMarkdownCopied, setIsMarkdownCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(markdownContent);
+    setIsMarkdownCopied(true);
+    setTimeout(() => {
+      setIsMarkdownCopied(false);
+    }, 2000);
+  };
 
   return (
     <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
@@ -89,29 +100,49 @@ export const DialogWithMD = () => {
                 Close
               </Button>
             </DialogClose>
-            <Button
-              type="button"
-              onClick={() => {
-                navigator.clipboard.writeText(markdownContent);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="lucide lucide-copy-icon lucide-copy"
+            {!isMarkdownCopied ? (
+              <Button
+                type="button"
+                onClick={() => {
+                  handleCopy();
+                }}
               >
-                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-              </svg>
-              Copy
-            </Button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="lucide lucide-copy-icon lucide-copy"
+                >
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                </svg>
+                Copy
+              </Button>
+            ) : (
+              <Button type="button" variant="success">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="lucide lucide-check-icon lucide-check"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Copied!
+              </Button>
+            )}
           </div>
         </DialogFooter>
       </DialogContent>
