@@ -92,7 +92,7 @@ function Index() {
                 <FormItem className="flex-1">
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="developerleonardo" {...field} />
+                    <Input placeholder="your github username" {...field} />
                   </FormControl>
                   <FormDescription>
                     Use developerleonardo if you don't have an account.

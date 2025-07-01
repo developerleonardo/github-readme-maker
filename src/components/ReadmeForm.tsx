@@ -52,6 +52,7 @@ export const ReadmeForm = () => {
             placeholder="Enter your name"
             value={readmeContent.name}
             onChange={(e) => handleInputUpdate(e)}
+            required
           />
         </div>
       </SectionForm>
