@@ -54,6 +54,7 @@ export const ReadmeForm = () => {
             onChange={(e) => handleInputUpdate(e)}
             required
             maxLength={50}
+            autoComplete="name"
           />
         </div>
       </SectionForm>

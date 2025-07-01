@@ -28,10 +28,11 @@ export const SocialsInput = ({
   };
   return (
     <div className="grid w-full max-w-sm items-center gap-1">
-      <Label htmlFor={label}>{label}</Label>
+      <Label htmlFor={id}>{label}</Label>
       <Input
         type={type}
         id={id}
+        name={id}
         placeholder={placeholder}
         value={readmeContentSocials[id as socialsTypes]}
         onChange={(e) => handleSocialInputUpdate(e)}

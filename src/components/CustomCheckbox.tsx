@@ -22,6 +22,7 @@ export const CustomCheckbox = ({ id, label }: CustomCheckboxProps) => {
     <div className="flex items-center gap-3">
       <Checkbox
         id={id}
+        name={id}
         checked={isChecked}
         onCheckedChange={handleCheckboxChange(id)}
       />

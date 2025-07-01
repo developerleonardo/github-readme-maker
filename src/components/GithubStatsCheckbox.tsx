@@ -22,6 +22,7 @@ export const GithubStatsCheckbox = () => {
       <div className="flex items-center gap-3">
         <Checkbox
           id="showGithubStats"
+          name="showGithubStats"
           checked={showGithubStats}
           onCheckedChange={() => toggleBooleanField("showGithubStats")}
         />
@@ -30,6 +31,7 @@ export const GithubStatsCheckbox = () => {
       <div className="flex items-center gap-3">
         <Checkbox
           id="showGithubTrophies"
+          name="showGithubTrophies"
           checked={showGithubTrophies}
           onCheckedChange={() => toggleBooleanField("showGithubTrophies")}
         />
@@ -38,6 +40,7 @@ export const GithubStatsCheckbox = () => {
       <div className="flex items-center gap-3">
         <Checkbox
           id="showTopRepos"
+          name="showTopRepos"
           checked={showTopRepos}
           onCheckedChange={() => toggleBooleanField("showTopRepos")}
         />
