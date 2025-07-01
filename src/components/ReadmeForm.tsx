@@ -53,6 +53,7 @@ export const ReadmeForm = () => {
             value={readmeContent.name}
             onChange={(e) => handleInputUpdate(e)}
             required
+            maxLength={50}
           />
         </div>
       </SectionForm>
@@ -64,6 +65,7 @@ export const ReadmeForm = () => {
             id="summary"
             value={readmeContent.summary}
             onChange={(e) => handleInputUpdate(e)}
+            maxLength={900}
           />
         </div>
       </SectionForm>
