@@ -1,54 +1,93 @@
-# React + TypeScript + Vite
+# 🚀 Github Readme Maker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Github Readme Maker**!  
+Easily generate beautiful, personalized GitHub profile READMEs with just a few clicks.  
+Showcase your skills, stats, and personality to recruiters and the open-source community!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 📝 Live preview of your README as you build it
+- 🎨 Multiple stylish templates to choose from
+- 👤 Add your name, summary, and social links
+- 🛠️ Select your tech stack from a wide range of technologies
+- 📊 Display GitHub stats, trophies, and top repositories
+- ⚡ Copy your generated markdown instantly
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Built With
+
+This project leverages a modern web stack and powerful open-source tools:
+
+| Technology                                      | Description                                    |
+| ----------------------------------------------- | ---------------------------------------------- |
+| [React](https://react.dev/)                     | UI library for building interactive interfaces |
+| [TypeScript](https://www.typescriptlang.org/)   | Typed superset of JavaScript                   |
+| [Vite](https://vitejs.dev/)                     | Lightning-fast frontend build tool             |
+| [Zustand](https://zustand-demo.pmnd.rs/)        | State management for React                     |
+| [TanStack Router](https://tanstack.com/router)  | Type-safe routing for React apps               |
+| [TanStack Query](https://tanstack.com/query)    | Powerful data fetching & caching for React     |
+| [React Hook Form](https://react-hook-form.com/) | Performant, flexible forms for React           |
+| [Zod](https://zod.dev/)                         | TypeScript-first schema validation             |
+| [TailwindCSS](https://tailwindcss.com/)         | Utility-first CSS framework                    |
+| [shadcn/ui](https://ui.shadcn.com/)             | Beautifully designed React components          |
+| [ESLint](https://eslint.org/)                   | Linting for code quality                       |
+| [Prettier](https://prettier.io/)                | Code formatting                                |
+| [Vercel](https://vercel.com/)                   | Deployment and hosting                         |
+
+#### Supported Tech Stack Badges
+
+- React, Next.js, TypeScript, JavaScript, Node.js, Express.js, MongoDB, PostgreSQL, GraphQL, Docker, AWS, HTML5, CSS, Sass, TailwindCSS, Bootstrap, MUI, Vue.js, Angular, Flutter, React Native, shadcn/ui, Vite
+
+---
+
+## 📸 Screenshots
+
+![screenshot](public/og/readme-generator-og.webp)
+
+---
+
+## 🚦 Getting Started
+
+1. **Clone the repo**
+
+   ```sh
+   git clone https://github.com/your-username/github-readme-maker.git
+   cd github-readme-maker
+   ```
+
+2. **Install dependencies**
+
+   ```sh
+   pnpm install
+   ```
+
+3. **Start the development server**
+
+   ```sh
+   pnpm run dev
+   ```
+
+4. Open http://localhost:5173 in your
+
+## 📦 Project
+
+```sh
+├── src/
+│ ├── components/ # UI components & templates
+│ ├── data/ # Tech stack & social data
+│ ├── stores/ # Zustand state stores
+│ ├── utils/ # Markdown & preview generators
+│ └── ...
+├── public/ # Static assets
+├── [index.html](http://_vscodecontentref_/0)
+├── [package.json](http://_vscodecontentref_/1)
+└── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🤝 Contributing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Contributions are welcome!
+Feel free to open issues or submit pull requests to improve the project
