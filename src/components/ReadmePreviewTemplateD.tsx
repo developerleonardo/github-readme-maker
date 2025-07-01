@@ -53,9 +53,7 @@ export const ReadmePreviewTemplateD = () => {
             About Me
           </h2>
           <SidebarSeparator className="mb-4" />
-          <div className="w-full px-16 py-4 bg-gray-100 mb-8 border border-gray-300">
-            <p className="text-base mb-6">{readmeContent.summary}</p>
-          </div>
+          <p className="text-base mb-6">{readmeContent.summary}</p>
         </>
       )}
       {Object.values(readmeContent.socials).some((value) => value !== "") && (

@@ -24,7 +24,7 @@ const generateMarkDownDescriptionForTemplateD = (
 ): string => {
   if (readmeContent.summary) {
     return `<div align="center"><img alt="pikachu" src="https://media.tenor.com/rbx3ph5SLRUAAAAi/pikachu-pokemon.gif" /></div> <br/><br/> <h2><img src="https://slackmojis.com/emojis/10254-pepe_naruto/download" width="20"> <b>About Me<b/></h2>
-    <pre>${readmeContent.summary}</pre>
+    <p>${readmeContent.summary}</p>
     `;
   }
   return "";
