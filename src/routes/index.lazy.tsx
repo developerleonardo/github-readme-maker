@@ -20,6 +20,7 @@ import { Loading } from "@/components/Loading";
 import { ErrorMessage } from "@/components/ErrorMessage";
 import { Footer } from "@/components/Footer";
 import { useReadmeStore } from "@/stores";
+import { useReadmeFormStore } from "@/stores/readmeForm/readmeForm.store";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -40,17 +41,18 @@ function Index() {
   const [githubUsername, setGithubUsername] = useState("");
   const { data, error, isLoading } = useFetchUser(githubUsername);
   const navigate = useNavigate({ from: "/" });
-  // 1. Define your form.
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
     },
   });
+  const resetForm = useReadmeFormStore((state) => state.resetForm);
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     await setGithubUsername(values.username);
+    resetForm();
   }
 
   if (isLoading) {
