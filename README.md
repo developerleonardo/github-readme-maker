@@ -37,10 +37,6 @@ This project leverages a modern web stack and powerful open-source tools:
 | [Prettier](https://prettier.io/)                | Code formatting                                |
 | [Vercel](https://vercel.com/)                   | Deployment and hosting                         |
 
-#### Supported Tech Stack Badges
-
-- React, Next.js, TypeScript, JavaScript, Node.js, Express.js, MongoDB, PostgreSQL, GraphQL, Docker, AWS, HTML5, CSS, Sass, TailwindCSS, Bootstrap, MUI, Vue.js, Angular, Flutter, React Native, shadcn/ui, Vite
-
 ---
 
 ## 📸 Screenshots
