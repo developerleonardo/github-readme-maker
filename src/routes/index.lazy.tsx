@@ -73,8 +73,8 @@ function Index() {
   }
 
   return (
-    <div className="min-h-svh max-w-7xl w-full h-full grid grid-cols-[448px_1fr] px-6 pt-24 pb-8 place-items-center grid-rows-[1fr_60px]">
-      <section className="flex flex-col">
+    <div className="min-h-svh max-w-7xl w-full h-full grid-cols-1 grid lg:grid-cols-[448px_1fr] px-6 pt-24 pb-8 place-items-center grid-rows-[1fr_60px] gap-6 lg:gap-12">
+      <section className="flex flex-col max-w-md">
         <h1 className="text-4xl font-bold mb-9 text-heading-1">
           Your Github Deserves More Than an Empty README
         </h1>
@@ -114,7 +114,7 @@ function Index() {
         alt="Hero image"
         width={571}
         height={390}
-        className="mt-12"
+        className="mt-12 hidden lg:block"
       />
       <BubbleBackground />
       <Footer />
