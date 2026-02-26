@@ -29,6 +29,7 @@ export const Route = createLazyFileRoute("/")({
 const formSchema = z.object({
   username: z
     .string()
+    .trim()
     .min(1)
     .max(39)
     .regex(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i, {
@@ -51,7 +52,7 @@ function Index() {
   const resetForm = useReadmeFormStore((state) => state.resetForm);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await setGithubUsername(values.username);
+    await setGithubUsername(values.username.trim());
     resetForm();
   }
 
