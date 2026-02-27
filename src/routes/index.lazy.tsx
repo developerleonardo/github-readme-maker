@@ -15,12 +15,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Loading } from "@/components/Loading";
 import { ErrorMessage } from "@/components/ErrorMessage";
 import { Footer } from "@/components/Footer";
 import { useReadmeStore } from "@/stores";
 import { useReadmeFormStore } from "@/stores/readmeForm/readmeForm.store";
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -42,6 +44,22 @@ function Index() {
   const [githubUsername, setGithubUsername] = useState("");
   const { data, error, isLoading } = useFetchUser(githubUsername);
   const navigate = useNavigate({ from: "/" });
+  const driverRef = useRef<ReturnType<typeof driver> | null>(null);
+  const inputRef = useCallback((node: HTMLInputElement | null) => {
+    if (!node) return;
+
+    const driverObj = driver();
+    driverRef.current = driverObj;
+    driverObj.highlight({
+      element: node,
+      popover: {
+        title: "Enter a GitHub username",
+        description:
+          "Or use developerleonardo if you don't have an account and you want to see how it works.",
+        side: "bottom",
+      },
+    });
+  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -65,6 +83,7 @@ function Index() {
   }
 
   if (data) {
+    driverRef.current?.destroy();
     setGithubUser(data);
     navigate({
       to: `/generate/${data.login}`,
@@ -95,7 +114,12 @@ function Index() {
                 <FormItem className="flex-1">
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="your github username" {...field} />
+                    <Input
+                      id="github-username"
+                      placeholder="your github username"
+                      {...field}
+                      ref={inputRef}
+                    />
                   </FormControl>
                   <FormDescription>
                     Use developerleonardo if you don't have an account.
